@@ -18,6 +18,7 @@ const Signup = ({ signupCompleted }) => {
   const [show, setShow] = React.useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -128,12 +129,13 @@ const Signup = ({ signupCompleted }) => {
           name,
           email,
           password,
+          phone,
           isAdmin,
         },
         config
       )
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         toast({
           title: "User registered successfully.",
           status: "success",
@@ -189,6 +191,16 @@ const Signup = ({ signupCompleted }) => {
             placeholder="Enter Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+          />
+        </FormControl>
+        <FormControl mb={2}>
+          <FormLabel>Phone No:</FormLabel>
+          <Input
+            type="number"
+            variant={"flushed"}
+            placeholder="Enter Phone Number"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
         </FormControl>
         <FormControl mb={2} isRequired>

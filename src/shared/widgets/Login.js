@@ -5,7 +5,6 @@ import {
   FormLabel,
   Input,
   InputGroup,
-  InputLeftAddon,
   InputRightElement,
   Text,
   useToast,
@@ -99,7 +98,7 @@ const Login = ({ onLoginComplete }) => {
       flexDir={"column"}
       mb={3}
     >
-      <Text fontSize={"md"} fontWeight={"medium"}>
+      {/* <Text fontSize={"md"} fontWeight={"medium"}>
         Login with valid mobile number:-
       </Text>
       <InputGroup>
@@ -111,7 +110,7 @@ const Login = ({ onLoginComplete }) => {
       </Button>
       <Box textAlign={"center"} fontSize={"medium"} p={4}>
         OR
-      </Box>
+      </Box> */}
       <Box
         width={"full"}
         color={"black"}
@@ -119,7 +118,7 @@ const Login = ({ onLoginComplete }) => {
         flexDir={"column"}
         mb={3}
       >
-        <Text fontSize={"medium"} fontWeight={"medium"}>
+        <Text fontSize={"medium"} fontWeight={"medium"} mb={2}>
           Login with Email and Password:-
         </Text>
         <FormControl mb={2} isRequired>
