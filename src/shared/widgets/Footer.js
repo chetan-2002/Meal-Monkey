@@ -14,7 +14,7 @@ const Footer = () => {
         target="_blank"
         rel="noreferrer"
       >
-        Chetan Thakral
+        Meal Monkey Team
       </a>{" "}
       © 2022
     </Box>
