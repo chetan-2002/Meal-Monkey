@@ -2,14 +2,14 @@ import { useEffect } from "react";
 import "./App.css";
 import AppRoutes from "./config/routes/AppRoutes";
 import { Box } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // import nativeOperations from "./shared/services/native";
 
 function App() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   useEffect(() => {
     localStorage.setItem("chakra-ui-color-mode", "light");
-    navigate("/menu");
+    // navigate("/menu");
     //eslint-disable-next-line
   }, []);
   return (
