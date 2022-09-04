@@ -23,6 +23,31 @@ const Login = ({ onLoginComplete }) => {
 
   const { setUser, setCart } = CartState();
 
+  const getCartItems = async () => {
+    const configuration = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${
+          JSON.parse(localStorage.getItem("userInfo")).token
+        }`,
+      },
+    };
+    axios
+      .post(
+        "http://localhost:5000/api/cart/getCartItems",
+        {
+          userId: JSON.parse(localStorage.getItem("userInfo"))._id,
+        },
+        configuration
+      )
+      .then((res) => {
+        setCart(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const loginHandler = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -51,26 +76,7 @@ const Login = ({ onLoginComplete }) => {
         });
         setLoading(false);
         localStorage.setItem("userInfo", JSON.stringify(res.data));
-        const configuration = {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${
-              JSON.parse(localStorage.getItem("userInfo")).token
-            }`,
-          },
-        };
-        axios
-          .post(
-            "http://localhost:5000/api/cart/getCartItems",
-            {},
-            configuration
-          )
-          .then((res) => {
-            setCart(res.data);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        getCartItems();
         setUser(res.data);
         onLoginComplete();
       })

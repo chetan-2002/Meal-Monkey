@@ -25,6 +25,74 @@ const Signup = ({ signupCompleted }) => {
   const toast = useToast();
   const { setUser, setCart } = CartState();
 
+  const getCartItems = async () => {
+    const configuration = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${
+          JSON.parse(localStorage.getItem("userInfo")).token
+        }`,
+      },
+    };
+    axios
+      .post(
+        "http://localhost:5000/api/cart/getCartItems",
+        {
+          userId: JSON.parse(localStorage.getItem("userInfo"))._id,
+        },
+        configuration
+      )
+      .then((res) => {
+        setCart(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const sendverificationEmail = async (id, token, name, email) => {
+    const configuration = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${
+          JSON.parse(localStorage.getItem("userInfo")).token
+        }`,
+      },
+    };
+    axios
+      .post(
+        "http://localhost:5000/api/sendmail",
+        {
+          email: email,
+          subject: "Verify your email",
+          html: `<h3>Hey, ${name}</h3>
+      <p>Thanks for signing up with us. Please verify your email by clicking on the link below.</p>
+      <a href="http://localhost:3000/verify/${id}/${token}">
+        http://localhost:3000/verify/${id}/${token}
+      </a>
+      <p>If you did not sign up with us, please ignore this email.</p>
+      <p>Thanks</p>
+      <p>Team Meal Monkey</p>`,
+        },
+        configuration
+      )
+      .then((res) => {
+        toast({
+          title: "Verification Email Sent",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      })
+      .catch((err) => {
+        toast({
+          title: "Error in sending verification email",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      });
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -65,6 +133,7 @@ const Signup = ({ signupCompleted }) => {
         config
       )
       .then((res) => {
+        console.log(res.data);
         toast({
           title: "User registered successfully.",
           status: "success",
@@ -73,26 +142,14 @@ const Signup = ({ signupCompleted }) => {
         });
         setLoading(false);
         localStorage.setItem("userInfo", JSON.stringify(res.data));
-        const configuration = {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${
-              JSON.parse(localStorage.getItem("userInfo")).token
-            }`,
-          },
-        };
-        axios
-          .post(
-            "http://localhost:5000/api/cart/getCartItems",
-            {},
-            configuration
-          )
-          .then((res) => {
-            setCart(res.data);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        getCartItems();
+        setUser(res.data);
+        sendverificationEmail(
+          res.data._id,
+          res.data.token,
+          res.data.name,
+          res.data.email
+        );
         setUser(res.data);
         signupCompleted();
       })

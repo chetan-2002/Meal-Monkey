@@ -14,6 +14,33 @@ const OrderSummary = () => {
   const handleOrder = async () => {
     // console.log("Order Placed");
     setLoading(true);
+    const configuration = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${
+          JSON.parse(localStorage.getItem("userInfo")).token
+        }`,
+      },
+    };
+    axios
+      .post(
+        "http://localhost:5000/api/user/isEmailVerified",
+        {
+          email: user?.email,
+        },
+        configuration
+      )
+      .then((res) => {})
+      .catch((err) => {
+        toast({
+          title: "Please Verify Your Email",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+        setLoading(false);
+        return;
+      });
     if (
       !shippingInfo.address ||
       !shippingInfo.paymentType ||
@@ -48,6 +75,7 @@ const OrderSummary = () => {
             "http://localhost:5000/api/sendmail",
             {
               email: user.email,
+              subject: "Order Confirmation",
               html: `<h3>Hey ${user.name}, </h3>
               Thank you for shopping with us. Your order has been placed successfully.
               <br>

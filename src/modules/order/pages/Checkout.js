@@ -10,7 +10,7 @@ const Checkout = () => {
   useEffect(() => {
     if (orderPlaced) {
       setOrderPlaced(false);
-      navigate("/menu");
+      navigate("/");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

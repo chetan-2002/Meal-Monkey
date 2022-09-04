@@ -30,7 +30,7 @@ const PendingOrders = () => {
     axios
       .post(
         "http://localhost:5000/api/order/getOrderByUser",
-        { userId: user._id },
+        { userId: user?._id },
         config
       )
       .then((res) => {
@@ -59,7 +59,7 @@ const PendingOrders = () => {
         </Box>
       ) : (
         <>
-          {orders.length > 0 ? (
+          {orders?.length > 0 ? (
             <TableContainer py={4}>
               <Table variant="striped" colorScheme="blue">
                 <Thead>
@@ -74,12 +74,12 @@ const PendingOrders = () => {
                 <Tbody>
                   {orders?.map((order) => {
                     return (
-                      <Tr key={order._id}>
+                      <Tr key={order?._id}>
                         <Td>{moment(order.date).utc().format("DD-MM-YYYY")}</Td>
                         <Td>{order.paymentType}</Td>
                         <Td>{order.paymentStatus}</Td>
                         <Td>
-                          <Box as="a" href={`/order/${order._id}`}>
+                          <Box as="a" href={`/order/${order?._id}`}>
                             {order._id}
                           </Box>
                         </Td>
