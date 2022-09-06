@@ -29,7 +29,7 @@ const PendingOrders = () => {
     };
     axios
       .post(
-        "http://localhost:5000/api/order/getOrderByUser",
+        "https://meal-monkey-backend.herokuapp.com/api/order/getOrderByUser",
         { userId: user?._id },
         config
       )

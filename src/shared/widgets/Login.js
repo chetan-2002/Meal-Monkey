@@ -33,7 +33,7 @@ const Login = ({ onLoginComplete }) => {
     };
     axios
       .post(
-        "http://localhost:5000/api/cart/getCartItems",
+        "https://meal-monkey-backend.herokuapp.com/api/cart/getCartItems",
         {
           userId: JSON.parse(localStorage.getItem("userInfo"))._id,
         },
@@ -64,7 +64,11 @@ const Login = ({ onLoginComplete }) => {
       "Content-Type": "application/json",
     };
     axios
-      .post("http://localhost:5000/api/user/login", { email, password }, config)
+      .post(
+        "https://meal-monkey-backend.herokuapp.com/sapi/user/login",
+        { email, password },
+        config
+      )
       .then((res) => {
         // console.log(res.data);
         toast({

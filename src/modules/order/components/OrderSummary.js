@@ -21,7 +21,11 @@ const OrderSummary = () => {
       },
     };
     await axios
-      .post("http://localhost:5000/api/order/makeOrder", shippingInfo, config)
+      .post(
+        "https://meal-monkey-backend.herokuapp.com/api/order/makeOrder",
+        shippingInfo,
+        config
+      )
       .then((res) => {
         toast({
           title: "Order Placed Successfully",
@@ -30,7 +34,7 @@ const OrderSummary = () => {
           isClosable: true,
         });
         axios.post(
-          "http://localhost:5000/api/sendmail",
+          "https://meal-monkey-backend.herokuapp.com/api/sendmail",
           {
             email: user.email,
             subject: "Order Confirmation",
@@ -115,7 +119,7 @@ const OrderSummary = () => {
     };
     axios
       .post(
-        "http://localhost:5000/api/user/isEmailVerified",
+        "https://meal-monkey-backend.herokuapp.com/api/user/isEmailVerified",
         {
           email: user?.email,
         },

@@ -37,7 +37,7 @@ const Signup = ({ signupCompleted }) => {
     };
     axios
       .post(
-        "http://localhost:5000/api/cart/getCartItems",
+        "https://meal-monkey-backend.herokuapp.com/api/cart/getCartItems",
         {
           userId: JSON.parse(localStorage.getItem("userInfo"))._id,
         },
@@ -62,14 +62,14 @@ const Signup = ({ signupCompleted }) => {
     };
     axios
       .post(
-        "http://localhost:5000/api/sendmail",
+        "https://meal-monkey-backend.herokuapp.com/api/sendmail",
         {
           email: email,
           subject: "Verify your email",
           html: `<h3>Hey, ${name}</h3>
       <p>Thanks for signing up with us. Please verify your email by clicking on the link below.</p>
-      <a href="http://localhost:3000/verify/${id}/${token}">
-        http://localhost:3000/verify/${id}/${token}
+      <a href="https://meal-monkey-backend.herokuapp.com/verify/${id}/${token}">
+      https://meal-monkey-backend.herokuapp.com/verify/${id}/${token}
       </a>
       <p>If you did not sign up with us, please ignore this email.</p>
       <p>Thanks</p>
@@ -124,7 +124,7 @@ const Signup = ({ signupCompleted }) => {
     };
     axios
       .post(
-        "http://localhost:5000/api/user/register",
+        "https://meal-monkey-backend.herokuapp.com/api/user/register",
         {
           name,
           email,

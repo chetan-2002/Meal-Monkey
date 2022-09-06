@@ -22,7 +22,7 @@ const CartProvider = ({ children }) => {
       };
       axios
         .post(
-          "http://localhost:5000/api/cart/getCartItems",
+          "https://meal-monkey-backend.herokuapp.com/api/cart/getCartItems",
           { userId: userInfo._id },
           configuration
         )

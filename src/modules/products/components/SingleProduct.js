@@ -38,7 +38,11 @@ const SingleProduct = ({ product }) => {
       userId: user._id,
     };
     axios
-      .post("http://localhost:5000/api/cart/addToCart", body, config)
+      .post(
+        "https://meal-monkey-backend.herokuapp.com/api/cart/addToCart",
+        body,
+        config
+      )
       .then((res) => {
         toast({
           title: `${product.name} added to cart successfully`,

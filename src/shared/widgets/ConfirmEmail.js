@@ -18,7 +18,11 @@ const ConfirmEmail = () => {
       },
     };
     axios
-      .post("http://localhost:5000/api/token/verifyToken", { token }, config)
+      .post(
+        "https://meal-monkey-backend.herokuapp.com/api/token/verifyToken",
+        { token },
+        config
+      )
       .then((res) => {
         toast({
           title: "Email Verified",

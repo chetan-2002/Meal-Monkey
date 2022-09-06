@@ -1,6 +1,7 @@
 {
   "name": "shoppingapp",
   "version": "0.1.0",
+  "proxy": "https://admin-panel-meal-monkey.vercel.app/",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^2.0.8",
