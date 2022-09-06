@@ -65,7 +65,7 @@ const Login = ({ onLoginComplete }) => {
     };
     axios
       .post(
-        "https://meal-monkey-backend.herokuapp.com/sapi/user/login",
+        "https://meal-monkey-backend.herokuapp.com/api/user/login",
         { email, password },
         config
       )
