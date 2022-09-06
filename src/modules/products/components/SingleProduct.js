@@ -63,14 +63,7 @@ const SingleProduct = ({ product }) => {
   };
   const price = `₹${product.price} `;
   return (
-    <Box
-      borderRadius={8}
-      width={{ base: "full", md: "17rem" }}
-      bgColor="white"
-      display={"flex"}
-      flexDirection={"column"}
-      justifyContent={"space-between"}
-    >
+    <Box borderRadius={8} width={{ base: "full", md: "17rem" }} bgColor="white">
       <Image
         width={"100%"}
         height={"10rem"}
