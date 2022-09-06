@@ -68,8 +68,8 @@ const Signup = ({ signupCompleted }) => {
           subject: "Verify your email",
           html: `<h3>Hey, ${name}</h3>
       <p>Thanks for signing up with us. Please verify your email by clicking on the link below.</p>
-      <a href="https://meal-monkey-backend.herokuapp.com/verify/${id}/${token}">
-      https://meal-monkey-backend.herokuapp.com/verify/${id}/${token}
+      <a href="https://meal-monkey-kappa.vercel.app/verify/${id}/${token}">
+      https://meal-monkey-kappa.vercel.app/verify/${id}/${token}
       </a>
       <p>If you did not sign up with us, please ignore this email.</p>
       <p>Thanks</p>
