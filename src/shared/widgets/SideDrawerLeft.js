@@ -39,7 +39,7 @@ const SideDrawerLeft = () => {
       icon: faHouse,
       onClick: () => {
         onClose();
-        navigate("/menu");
+        navigate("/");
       },
     },
     {
@@ -47,7 +47,7 @@ const SideDrawerLeft = () => {
       icon: faAsterisk,
       onClick: () => {
         onClose();
-        navigate("/terms");
+        navigate("/tnc");
       },
     },
     {

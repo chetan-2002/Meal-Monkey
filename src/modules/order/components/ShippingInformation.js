@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   FormControl,
   FormLabel,
   HStack,
@@ -190,7 +189,6 @@ const ShippingInformation = () => {
             </HStack>
           </RadioGroup>
         </FormControl>
-        <Button display={"none"}> HEllo</Button>
       </Box>
     </Box>
   );
