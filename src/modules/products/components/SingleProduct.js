@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Image, Text, Button, HStack, useToast } from "@chakra-ui/react";
+import { Box, Image, Text, Button, useToast } from "@chakra-ui/react";
 import axios from "axios";
 import { CartState } from "../../../Context/CartProvider";
 
@@ -63,18 +63,25 @@ const SingleProduct = ({ product }) => {
   };
   const price = `₹${product.price} `;
   return (
-    <Box borderRadius={8} width={{ base: "full", md: "17rem" }} bgColor="white">
+    <Box
+      borderRadius={8}
+      width={{ base: "full", md: "17rem" }}
+      bgColor="white"
+      display={"flex"}
+      flexDirection={"column"}
+      justifyContent={"space-between"}
+    >
       <Image
         width={"100%"}
-        height={"14rem"}
+        height={"10rem"}
         src={product.image}
         borderRadius={"8px 8px 0 0"}
       />
       <Box
         display={"flex"}
         flexDir={"column"}
+        height={"auto"}
         justifyContent={"space-between"}
-        // alignItems={"flex-start"}
         p={4}
       >
         <Box>
@@ -86,26 +93,36 @@ const SingleProduct = ({ product }) => {
               ? product.description.slice(0, 50) + "..."
               : product.description}
           </Text>
-          <HStack spacing={{ base: "15rem", md: "40" }}>
-            <Text
-              color={"blackAlpha.800"}
-              fontSize={"lg"}
-              pt={3}
-              fontWeight={"medium"}
-              textAlign={"left"}
-            >
-              Price
-            </Text>
-            <Text
-              color={"blackAlpha.800"}
-              fontSize={"medium"}
-              pt={3}
-              fontWeight={"medium"}
-              textAlign={"right"}
-            >
-              {price}
-            </Text>
-          </HStack>
+
+          <Box
+            display={"flex"}
+            justifyContent={"space-between"}
+            alignItems={"center"}
+          >
+            <Box>
+              <Text
+                color={"blackAlpha.800"}
+                fontSize={"lg"}
+                pt={3}
+                fontWeight={"medium"}
+                textAlign={"left"}
+              >
+                Price
+              </Text>
+            </Box>
+            <Box>
+              <Text
+                color={"blackAlpha.800"}
+                fontSize={"medium"}
+                pt={3}
+                pr={2}
+                fontWeight={"medium"}
+                textAlign={"right"}
+              >
+                {price}
+              </Text>
+            </Box>
+          </Box>
         </Box>
         {/* <HStack align={"stretch"} mt={"4"} spacing={"14"}>
           <Menu>
@@ -127,6 +144,7 @@ const SingleProduct = ({ product }) => {
             </MenuList>
           </Menu>
         </HStack> */}
+
         <Box width={"full"}>
           <Button
             width={"100%"}
