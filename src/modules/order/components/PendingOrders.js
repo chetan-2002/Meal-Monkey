@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, useToast } from "@chakra-ui/react";
 import {
   Table,
   Thead,
@@ -16,6 +16,7 @@ import { CartState } from "../../../Context/CartProvider";
 const PendingOrders = () => {
   const [orders, setOrders] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
+  const toast = useToast();
   const { user } = CartState();
   useEffect(() => {
     setLoading(true);
@@ -38,7 +39,12 @@ const PendingOrders = () => {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        toast({
+          title: "Error Fetching Orders",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
         setLoading(false);
       });
     //eslint-disable-next-line

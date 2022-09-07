@@ -31,7 +31,6 @@ const ConfirmEmail = () => {
           isClosable: true,
         });
         navigate("/");
-        setLoading(false);
       })
       .catch((err) => {
         toast({
@@ -48,14 +47,15 @@ const ConfirmEmail = () => {
     <Box>
       {loading ? (
         <Box
-          width={"100%"}
-          height={"100%"}
-          m={"10"}
+          bgColor={"white"}
+          py={5}
+          display={"flex"}
+          flexDirection={"column"}
           justifyContent={"center"}
-          backgroundColor={"white"}
+          alignItems={"center"}
         >
           <Spinner />
-          <p>Verifying Email</p>
+          <Box p={4}>Verifying Email...</Box>
         </Box>
       ) : (
         <></>
