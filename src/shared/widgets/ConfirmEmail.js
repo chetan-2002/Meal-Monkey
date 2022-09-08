@@ -12,14 +12,11 @@ const ConfirmEmail = () => {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${
-          JSON.parse(localStorage.getItem("userInfo")).token
-        }`,
       },
     };
     axios
       .post(
-        "https://meal-monkey-backend.herokuapp.com/api/token/verifyToken",
+        "https://meal-monkey-with-stripe.herokuapp.com/api/token/verifyToken",
         { token },
         config
       )

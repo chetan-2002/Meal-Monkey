@@ -152,7 +152,6 @@ const Signup = ({ signupCompleted }) => {
           res.data.name,
           res.data.email
         );
-        setUser(res.data);
         signupCompleted();
       })
       .catch((err) => {
@@ -163,7 +162,6 @@ const Signup = ({ signupCompleted }) => {
           isClosable: true,
         });
         setLoading(false);
-        signupCompleted();
       });
   };
   const handleClick = () => setShow(!show);
