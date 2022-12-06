@@ -22,7 +22,7 @@ const CartProvider = ({ children }) => {
       };
       axios
         .post(
-          "https://meal-monkey-backend.herokuapp.com/api/cart/getCartItems",
+          "https://meal-monkey-backend.onrender.com/api/cart/getCartItems",
           { userId: userInfo._id },
           configuration
         )
@@ -58,3 +58,5 @@ export const CartState = () => {
   return React.useContext(CartContext);
 };
 export default CartProvider;
+
+//https://meal-monkey-backend.herokuapp.com/

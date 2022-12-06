@@ -30,7 +30,7 @@ const PendingOrders = () => {
     };
     axios
       .post(
-        "https://meal-monkey-backend.herokuapp.com/api/order/getOrderByUser",
+        "https://meal-monkey-backend.onrender.com/api/order/getOrderByUser",
         { userId: user?._id },
         config
       )

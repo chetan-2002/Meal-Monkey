@@ -39,7 +39,7 @@ const SingleProduct = ({ product }) => {
     };
     axios
       .post(
-        "https://meal-monkey-backend.herokuapp.com/api/cart/addToCart",
+        "https://meal-monkey-backend.onrender.com/api/cart/addToCart",
         body,
         config
       )

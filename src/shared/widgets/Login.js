@@ -33,7 +33,7 @@ const Login = ({ onLoginComplete }) => {
     };
     axios
       .post(
-        "https://meal-monkey-backend.herokuapp.com/api/cart/getCartItems",
+        "https://meal-monkey-backend.onrender.com/api/cart/getCartItems",
         {
           userId: JSON.parse(localStorage.getItem("userInfo"))._id,
         },
@@ -65,7 +65,7 @@ const Login = ({ onLoginComplete }) => {
     };
     axios
       .post(
-        "https://meal-monkey-backend.herokuapp.com/api/user/login",
+        "https://meal-monkey-backend.onrender.com/api/user/login",
         { email, password },
         config
       )

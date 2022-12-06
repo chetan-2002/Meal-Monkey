@@ -22,7 +22,7 @@ const OrderSummary = () => {
     };
     await axios
       .post(
-        "https://meal-monkey-backend.herokuapp.com/api/order/makeOrder",
+        "https://meal-monkey-backend.onrender.com/api/order/makeOrder",
         shippingInfo,
         config
       )
@@ -34,7 +34,7 @@ const OrderSummary = () => {
           isClosable: true,
         });
         axios.post(
-          "https://meal-monkey-backend.herokuapp.com/api/sendmail",
+          "https://meal-monkey-backend.onrender.com/api/sendmail",
           {
             email: user.email,
             subject: "Order Confirmation",
@@ -119,7 +119,7 @@ const OrderSummary = () => {
     };
     axios
       .post(
-        "https://meal-monkey-backend.herokuapp.com/api/user/isEmailVerified",
+        "https://meal-monkey-backend.onrender.com/api/user/isEmailVerified",
         {
           email: user?.email,
         },

@@ -37,7 +37,7 @@ const Signup = ({ signupCompleted }) => {
     };
     axios
       .post(
-        "https://meal-monkey-backend.herokuapp.com/api/cart/getCartItems",
+        "https://meal-monkey-backend.onrender.com/api/cart/getCartItems",
         {
           userId: JSON.parse(localStorage.getItem("userInfo"))._id,
         },
@@ -62,7 +62,7 @@ const Signup = ({ signupCompleted }) => {
     };
     axios
       .post(
-        "https://meal-monkey-backend.herokuapp.com/api/sendmail",
+        "https://meal-monkey-backend.onrender.com/api/sendmail",
         {
           email: email,
           subject: "Verify your email",
@@ -124,7 +124,7 @@ const Signup = ({ signupCompleted }) => {
     };
     axios
       .post(
-        "https://meal-monkey-backend.herokuapp.com/api/user/register",
+        "https://meal-monkey-backend.onrender.com/api/user/register",
         {
           name,
           email,

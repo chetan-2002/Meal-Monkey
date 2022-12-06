@@ -27,7 +27,7 @@ const SingleCartItem = ({ item }) => {
     };
     axios
       .post(
-        "https://meal-monkey-backend.herokuapp.com/api/cart/updateCartItems",
+        "https://meal-monkey-backend.onrender.com/api/cart/updateCartItems",
         { productId, operation, userId: user._id },
         config
       )
