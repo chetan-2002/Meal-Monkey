@@ -19,6 +19,8 @@ import { roundTo } from "round-to";
 import { CartState } from "../../../Context/CartProvider";
 // import { CartState } from "../../../Context/CartProvider";
 import { useNavigate } from "react-router-dom";
+// import StripePayment from "../../payment/components/StripePayment";
+// import CheckoutForm from "../../payment/components/CheckoutForm";
 const ShippingInformation = () => {
   const { cart, user, setShippingInfo } = CartState();
   const navigate = useNavigate();
@@ -189,6 +191,7 @@ const ShippingInformation = () => {
             </HStack>
           </RadioGroup>
         </FormControl>
+        {/* {shippingInformation.paymentType === "Card" && <StripePayment />} */}
       </Box>
     </Box>
   );
