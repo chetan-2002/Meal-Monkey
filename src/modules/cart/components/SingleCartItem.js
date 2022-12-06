@@ -67,7 +67,7 @@ const SingleCartItem = ({ item }) => {
     >
       <Image
         src={item?.product?.image}
-        alt={item?.product.name}
+        alt={item?.product?.name}
         width={{ base: "4rem", md: "6rem" }}
         height={{ base: "4rem", md: "6rem" }}
         borderRadius={"8px"}
