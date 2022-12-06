@@ -19,7 +19,7 @@ const Products = () => {
       },
     };
     await axios
-      .get("https://meal-monkey-backend.herokuapp.com/api/category/", config)
+      .get("https://meal-monkey-backend.onrender.com/api/category/", config)
       .then((res) => {
         // console.log(res.data);
         setCategories(res.data);
