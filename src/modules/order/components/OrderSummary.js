@@ -8,6 +8,10 @@ import { useNavigate } from "react-router-dom";
 
 const OrderSummary = () => {
   const { cart, shippingInfo, user, setOrderPlaced } = CartState();
+  const total = cart?.cartItems?.reduce(
+    (acc, item) => acc + item.product.price * item.qty,
+    0
+  );
   const [loading, setLoading] = React.useState(false);
   const toast = useToast();
   const navigate = useNavigate();
@@ -76,7 +80,7 @@ const OrderSummary = () => {
             <td>${shippingInfo.address}</td>
             <td>${shippingInfo.phoneNo}</td>
             <td>${shippingInfo.paymentType}</td>
-            <td>₹ ${roundTo(cart.total + 0.18 * cart.total, 0)}</td>
+            <td>₹ ${roundTo(total + 0.18 * total, 0)}</td>
             </tr>
             </table>
             <br>
@@ -187,7 +191,7 @@ const OrderSummary = () => {
             >
               <Box fontSize={"xl"}>Total Amount </Box>
               <Box fontSize={"xl"}>
-                {user ? `₹ ${roundTo(cart?.total, 2)}` : <></>}
+                {user ? `₹ ${roundTo(total, 2)}` : <></>}
               </Box>
             </Box>
             <Box
@@ -197,7 +201,7 @@ const OrderSummary = () => {
               padding={4}
             >
               <Box fontSize={"xl"}>GST (18%) </Box>
-              <Box fontSize={"xl"}>₹ {roundTo(cart?.total * 0.18, 2)}</Box>
+              <Box fontSize={"xl"}>₹ {roundTo(total * 0.18, 2)}</Box>
             </Box>
             <Box
               display={"flex"}
@@ -209,7 +213,7 @@ const OrderSummary = () => {
                 Total Amount after Taxes{" "}
               </Box>
               <Box fontWeight={"medium"} fontSize={"xl"}>
-                ₹ {roundTo(cart?.total + 0.18 * cart?.total, 0)}
+                ₹ {roundTo(total + 0.18 * total, 0)}
               </Box>
             </Box>
           </Box>

@@ -23,6 +23,10 @@ import { useNavigate } from "react-router-dom";
 // import CheckoutForm from "../../payment/components/CheckoutForm";
 const ShippingInformation = () => {
   const { cart, user, setShippingInfo } = CartState();
+  const total = cart?.cartItems?.reduce(
+    (acc, item) => acc + item.product.price * item.qty,
+    0
+  );
   const navigate = useNavigate();
   const cartId = cart._id;
   const [City, setCity] = React.useState("");
@@ -32,7 +36,7 @@ const ShippingInformation = () => {
     cart: cartId,
     address: "",
     paymentType: "COD",
-    total: roundTo(cart?.total + 0.18 * cart?.total, 0),
+    total: roundTo(total + 0.18 * total, 0),
     phoneNo: "",
   });
   const [loading, setLoading] = React.useState(false);
