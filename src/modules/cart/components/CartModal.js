@@ -24,6 +24,10 @@ const CartModal = ({ children }) => {
   const [disabled, setDisabled] = React.useState(true);
   const navigate = useNavigate();
   const { user, cart } = CartState();
+  const total = cart?.cartItems?.reduce(
+    (acc, item) => acc + item.product.price * item.qty,
+    0
+  );
   // const cart = JSON.parse(localStorage.getItem("cart"));
   useEffect(() => {
     if (cart?.cartItems?.length > 0 && user) {
@@ -75,7 +79,7 @@ const CartModal = ({ children }) => {
                         padding={4}
                       >
                         <Box fontSize={"xl"}>Total Amount </Box>
-                        <Box fontSize={"xl"}>₹ {roundTo(cart?.total, 2)}</Box>
+                        <Box fontSize={"xl"}>₹ {roundTo(total, 2)}</Box>
                       </Box>
                       <Box
                         display={"flex"}
@@ -84,9 +88,7 @@ const CartModal = ({ children }) => {
                         padding={4}
                       >
                         <Box fontSize={"xl"}>GST (18%) </Box>
-                        <Box fontSize={"xl"}>
-                          ₹ {roundTo(cart?.total * 0.18, 2)}
-                        </Box>
+                        <Box fontSize={"xl"}>₹ {roundTo(total * 0.18, 2)}</Box>
                       </Box>
                       <Box
                         display={"flex"}
@@ -98,7 +100,7 @@ const CartModal = ({ children }) => {
                           Total Amount after Taxes{" "}
                         </Box>
                         <Box fontWeight={"bold"} fontSize={"xl"}>
-                          ₹ {roundTo(cart?.total + 0.18 * cart?.total, 0)}
+                          ₹ {roundTo(total + 0.18 * total, 0)}
                         </Box>
                       </Box>
                     </>
