@@ -76,6 +76,31 @@ To use the application, follow these steps:
 
 ## Snapshots
 
+1. Landing Page
+
+![image](https://user-images.githubusercontent.com/77783033/222406407-805e942d-6fc2-4519-a777-624809c73ccf.png)
+
+2. Login and Signup Screen
+
+![image](https://user-images.githubusercontent.com/77783033/222406622-3b1fe8c5-43ea-4e16-a96e-02948c743371.png)
+
+3. Cart Screen
+
+![image](https://user-images.githubusercontent.com/77783033/222406818-40ee8ac2-0ca3-4cde-b761-5a4495390726.png)
+
+4. Checkout Screen
+
+![image](https://user-images.githubusercontent.com/77783033/222406904-fedb589a-5538-4f27-9f41-8135c602e9ea.png)
+
+5. Order History
+
+![image](https://user-images.githubusercontent.com/77783033/222407025-9d48054e-1efe-437d-a246-63ff821fdd77.png)
+
+6. Feedback Screen
+
+![image](https://user-images.githubusercontent.com/77783033/222407157-3708f916-0b63-40f2-a8e7-bea82f5ed14c.png)
+
+
 ## Contributing
 
 If you would like to contribute to the application, feel free to submit a pull request. Before submitting a pull request, please make sure to run the tests and ensure that your code follows the project's coding standards.
