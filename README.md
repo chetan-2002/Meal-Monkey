@@ -8,6 +8,7 @@ This is a web application that allows users to order pizza and other food items 
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Snapshots](#snapshots)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -72,6 +73,8 @@ To use the application, follow these steps:
 3. Checkout and enter your payment information.
 
 4. Track the status of your order in real-time, from preparation to delivery.(Not in production yet)
+
+## Snapshots
 
 ## Contributing
 
